@@ -1,0 +1,99 @@
+
+
+Objectives:
+    This lab is to learn both stack and queue.  
+
+Specification: 
+    Construct a C++ program to interpret post-fix notations using both stack and queue.
+
+    Your program should satisfy the following constraints:
+    - Must build and use both Queue and Stack ADTs (classes).
+    - Must use the Queue to store the input data. The queue must be implemented by
+	linked-list. Each operand/operator must be stored in each node of the queue.
+    - Must use the Stack to interprete the post-fix notation stored in the Queue. 
+	The stack must be implemented using array. 
+    - Must consist of at least 2 header files (stack_ADT.h, queue_ADT.h), 
+	at least 2 implementation files (stack_ADT.cpp, queue_ADT.cpp)
+	and 1 driver file (postfix_Dr.cpp) that includes a main function. 
+    - Must use at least 2 'class' constructs and must use at least 2 instances
+	instantiated from the class(es) defined. 
+    - Must use at least 1 'namespace' construct. 
+    - Must have comments on all definitions of functions and variables.  
+    - Must define pre-conditions and post-conditions for all functions. 
+
+
+Process: 
+  Do the following operations until (no_more_input)
+    Read input data and build a queue (FIFO). 
+	- Input data must be a post-fix notation (separated by ';') 
+		or null input (only ';'). 
+    Read the post-fix notation from the queue (FIFO) and interpret it using a stack (LIFO). 
+ 
+
+    (*) To reduce the problem size/complexity, we assume: 
+    	- This program only allows the following input:
+		integer digits (in the range of [0..9]) as operands 
+		four operators [+,-,*,/]
+		a separator/delimeter ';' 
+	- This program will 'not' consider the operator precedence. All four operators
+		have the same precedence. 
+
+    You may use some parts of the example programs shown in the textbook. 
+    Use the given input and use the same output format.
+    However, test your program with other input data sets. 
+    When grading, a different data set can be also tested. 
+
+    Before you start programming, draw operations of queue and stack 'manually'. 
+	- Draw the queue operation 'manually' to see how it must work. 
+	- Draw the stack operation 'manually' to show 
+	  'step-by-step' how the stack is operated with each input data 
+	  (like the input/output below).
+    While you run your program, 
+	- Compare your drawing with computer outputs. 
+	- Keep and submit the hand-drawn diagrams. 
+
+Input:
+    Postfix notations (use the following input data): 
+	Each input data will be separated by ';'.
+	When only ';' (with no operands/operators) appears in the data, quit. 
+
+   	(input file name: postfix.in) 
+	1 2 + ;
+	1 2 + 3 * ;
+	1 2 + 3 * 4 -;  
+	(... Here 2 more input data you need to construct ...) 
+	; (This means null input - end of input) 
+
+Output:
+    Output should look like the following (Use the same output format):  
+	(output file name: postfix.out)
+	(Output the same content to both the output file and the screen at the same time)
+	-- CPSC 131: Lab#3: Postfix Interpretation -- 
+	-- 1 -- 
+	Input: 1 2 + ; 
+	Contents of Queue: 1 3 +;  (show all contents of the queue: FIFO) 
+	Contents of Stack: 	   (interpret the postfix notation using the stack: LIFO) 
+		push 1: 1  	   (the stack contents: [top .. bottom]) 
+		push 2: 2 1  	    
+		push +: + 2 1    
+		pop +: 2 1 
+		pop 2: 1 
+		pop 1: 1
+		push (1+2): 3
+		pop 3: 
+		Result: 3 
+
+		(Show intermediate contents of stack sequentially 
+		from the top to the bottom of the stack, for each input operand
+		and operator when you read them from the queue and interpret them 
+		in the same way that was explained in the class) 
+
+	-- 2 --
+	(... similar to above ...)
+
+	-- 7 --
+	Input: ; 
+	No more data to process. 
+	-- The End of CPSC 131 Lab#3 --                
+
+
